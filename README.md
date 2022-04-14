@@ -11,6 +11,7 @@ rustup target add wasm32-unknown-unknown --toolchain nightly
 ```
 
 ### Further Reading
+- [FVM Architecture](https://github.com/filecoin-project/fvm-specs/blob/main/01-architecture.md)
 - [FVM 🤝 EVM Mapping](https://github.com/filecoin-project/fvm-specs/blob/main/04-evm-mapping.md)
 
 - [The Rust Programming Language](https://doc.rust-lang.org/stable/book/ch01-02-hello-world.html)
