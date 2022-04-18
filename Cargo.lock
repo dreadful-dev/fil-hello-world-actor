@@ -1340,7 +1340,7 @@ checksum = "1847abb9cb65d566acd5942e94aea9c8f547ad02c98e1649326fc0e8910b8b1e"
 [[package]]
 name = "fvm"
 version = "0.5.1"
-source = "git+https://github.com/filecoin-project/ref-fvm#664ab0bcc63dd87ef46b062ef946eab3472b3ed1"
+source = "git+https://github.com/filecoin-project/ref-fvm#9e724fd739e12823cd777ea6981f9600ece91ad0"
 dependencies = [
  "ahash",
  "anyhow",
@@ -1375,7 +1375,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_amt"
 version = "0.4.0"
-source = "git+https://github.com/filecoin-project/ref-fvm#664ab0bcc63dd87ef46b062ef946eab3472b3ed1"
+source = "git+https://github.com/filecoin-project/ref-fvm#9e724fd739e12823cd777ea6981f9600ece91ad0"
 dependencies = [
  "anyhow",
  "cid",
@@ -1400,7 +1400,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_blockstore"
 version = "0.1.0"
-source = "git+https://github.com/filecoin-project/ref-fvm#664ab0bcc63dd87ef46b062ef946eab3472b3ed1"
+source = "git+https://github.com/filecoin-project/ref-fvm#9e724fd739e12823cd777ea6981f9600ece91ad0"
 dependencies = [
  "anyhow",
  "cid",
@@ -1426,7 +1426,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_encoding"
 version = "0.1.0"
-source = "git+https://github.com/filecoin-project/ref-fvm#664ab0bcc63dd87ef46b062ef946eab3472b3ed1"
+source = "git+https://github.com/filecoin-project/ref-fvm#9e724fd739e12823cd777ea6981f9600ece91ad0"
 dependencies = [
  "anyhow",
  "cid",
@@ -1442,7 +1442,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_hamt"
 version = "0.4.0"
-source = "git+https://github.com/filecoin-project/ref-fvm#664ab0bcc63dd87ef46b062ef946eab3472b3ed1"
+source = "git+https://github.com/filecoin-project/ref-fvm#9e724fd739e12823cd777ea6981f9600ece91ad0"
 dependencies = [
  "anyhow",
  "byteorder 1.4.3",
@@ -1462,7 +1462,7 @@ dependencies = [
 [[package]]
 name = "fvm_sdk"
 version = "0.5.0"
-source = "git+https://github.com/filecoin-project/ref-fvm#664ab0bcc63dd87ef46b062ef946eab3472b3ed1"
+source = "git+https://github.com/filecoin-project/ref-fvm#9e724fd739e12823cd777ea6981f9600ece91ad0"
 dependencies = [
  "cid",
  "fvm_ipld_encoding 0.1.0 (git+https://github.com/filecoin-project/ref-fvm)",
@@ -1476,7 +1476,7 @@ dependencies = [
 [[package]]
 name = "fvm_shared"
 version = "0.5.1"
-source = "git+https://github.com/filecoin-project/ref-fvm#664ab0bcc63dd87ef46b062ef946eab3472b3ed1"
+source = "git+https://github.com/filecoin-project/ref-fvm#9e724fd739e12823cd777ea6981f9600ece91ad0"
 dependencies = [
  "anyhow",
  "bimap",
@@ -2517,9 +2517,9 @@ dependencies = [
 
 [[package]]
 name = "rustix"
-version = "0.33.5"
+version = "0.33.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "03627528abcc4a365554d32a9f3bbf67f7694c102cfeda792dc86a2d6057cc85"
+checksum = "7ac32d9fc97153ca55305284cb6c2dcbb84e1fc6d7ac13392cea02222f2d8741"
 dependencies = [
  "bitflags",
  "errno",
