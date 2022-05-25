@@ -19,15 +19,20 @@ lotus chain install-actor ./target/debug/wbuild/fil_hello_world_actor/fil_hello_
 # sending message...
 # gas limit: 702194416
 # waiting for message to execute...
-# Actor Code CID: bafk2b[...]
-# Installed: false (prior installation flag?)
+# Actor Code CID: bafk2bzacedyxt7uaygvrsqbwunosk27j4patg3ip52d2hgppj4fbukojvwb2i
 
-lotus chain create-actor bafk2b[...]
+# ./lotus chain create-actor bafk2bzacedyxt7uaygvrsqbwunosk27j4patg3ip52d2hgppj4fbukojvwb2i
+# sending message...
+# waiting for message to execute...
+# ID Address: t01001
+# Robust Address: t2ht5hlqz55ixnpo3nfmccrpydmyvlaid24lvwh5y
+
+./lotus chain invoke t01001 2
 # sending message...
 # waiting for message to execute...
 # b0hlbGxvIHdvcmxkICMxIQ==   <-- base64 encoded return data
-
 echo "b0hlbGxvIHdvcmxkICMxIQ==" | base64 -d
+# oHello world #1!%
 ```
 
 ### Further Reading
