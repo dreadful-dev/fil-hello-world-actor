@@ -1,7 +1,7 @@
 ## Filecoin Smart Contract Template - Hello World Actor
 
 ### Prerequesites 
-1. [Lotus](https://lotus.filecoin.io/developers/local-network/) `fvm-m2` branch
+1. [Lotus locally](https://lotus.filecoin.io/developers/local-network/) `fvm-m2` branch or [Lotus in Docker](https://github.com/jimpick/lotus-fvm-localnet)
 2. Rust 👇
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
