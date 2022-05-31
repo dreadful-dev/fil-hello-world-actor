@@ -14,8 +14,8 @@ serde = { version = "1.0.136", features = ["derive"] }
 serde_tuple = "0.5"
 anyhow = "1.0.56"
 
-fvm_state_macro = { path = "./fvm_state_macro" }
-fvm_state_macro_derive = { path = "./fvm_state_macro/fvm_state_macro_derive" }
+fvm_macro = { path = "./fvm_macro" }
+fvm_macro_derive = { path = "./fvm_macro/fvm_macro_derive" }
 
 
 [dev-dependencies]

@@ -1206,10 +1206,10 @@ dependencies = [
  "fvm",
  "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "fvm_ipld_encoding 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "fvm_macro",
+ "fvm_macro_derive",
  "fvm_sdk",
  "fvm_shared",
- "fvm_state_macro",
- "fvm_state_macro_derive",
  "libsecp256k1",
  "multihash",
  "rand 0.8.5",
@@ -1538,6 +1538,30 @@ dependencies = [
 ]
 
 [[package]]
+name = "fvm_macro"
+version = "0.1.0"
+dependencies = [
+ "cid",
+ "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "fvm_ipld_encoding 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "fvm_sdk",
+ "fvm_shared",
+]
+
+[[package]]
+name = "fvm_macro_derive"
+version = "0.1.0"
+dependencies = [
+ "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "fvm_ipld_encoding 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
+ "fvm_sdk",
+ "fvm_shared",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "fvm_sdk"
 version = "1.0.0-rc.1"
 source = "git+https://github.com/filecoin-project/ref-fvm#4100dba80fec4495e101bedc9d5df418cad40977"
@@ -1581,21 +1605,6 @@ dependencies = [
  "serde_tuple",
  "thiserror",
  "unsigned-varint",
-]
-
-[[package]]
-name = "fvm_state_macro"
-version = "0.1.0"
-dependencies = [
- "cid",
-]
-
-[[package]]
-name = "fvm_state_macro_derive"
-version = "0.1.0"
-dependencies = [
- "quote",
- "syn",
 ]
 
 [[package]]

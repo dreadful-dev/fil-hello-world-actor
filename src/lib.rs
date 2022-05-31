@@ -7,11 +7,11 @@ use fvm_ipld_encoding::tuple::{Deserialize_tuple, Serialize_tuple};
 use fvm_ipld_encoding::{to_vec, CborStore, RawBytes, DAG_CBOR};
 use fvm_sdk as sdk;
 use fvm_sdk::NO_DATA_BLOCK_ID;
-use fvm_shared::ActorID;
+use fvm_shared::{ActorID};
 
-use fvm_state_macro::StateObject;
-use fvm_state_macro_derive::StateObject;
-
+use fvm_macro::StateObject;
+use fvm_macro_derive::{StateObject, fvm_actor};
+// use fvm_macro_derive::fvm_actor;
 
 /// A macro to abort concisely.
 /// This should be part of the SDK as it's very handy.
@@ -26,9 +26,55 @@ macro_rules! abort {
 
 /// The state object.
 #[derive(Serialize_tuple, Deserialize_tuple, Clone, Debug, Default, StateObject)]
-pub struct State {
+pub struct ComputeState {
     pub count: u64,
 }
+
+pub struct ComputeActor;
+
+
+#[fvm_actor(state=ComputeState, dispatch="method_num")]
+impl ComputeActor {
+    /// The constructor populates the initial state.
+    ///
+    /// Method num 1. This is part of the Filecoin calling convention.
+    /// InitActor#Exec will call the constructor on method_num = 1.
+
+    pub fn constructor(_: RawBytes) -> Option<RawBytes> {
+      // This constant should be part of the SDK.
+      const INIT_ACTOR_ADDR: ActorID = 1;
+
+      // Should add SDK sugar to perform ACL checks more succinctly.
+      // i.e. the equivalent of the validate_* builtin-actors runtime methods.
+      // https://github.com/filecoin-project/builtin-actors/blob/master/actors/runtime/src/runtime/fvm.rs#L110-L146
+      if sdk::message::caller() != INIT_ACTOR_ADDR {
+          abort!(USR_FORBIDDEN, "constructor invoked by non-init actor");
+      }
+
+      let state = ComputeState::default();
+      state.save();
+      None
+    }
+
+    pub fn say_hello(_: RawBytes) -> Option<RawBytes> {
+      let mut state = ComputeState::load();
+      state.count += 1;
+      state.save();
+  
+      let ret = to_vec(format!("Hello world #{}!", &state.count).as_str());
+      match ret {
+          Ok(ret) => Some(RawBytes::new(ret)),
+          Err(err) => {
+              abort!(
+                  USR_ILLEGAL_STATE,
+                  "failed to serialize return value: {:?}",
+                  err
+              );
+          }
+      }
+    }
+}
+
 
 /// The actor's WASM entrypoint. It takes the ID of the parameters block,
 /// and returns the ID of the return value block, or NO_DATA_BLOCK_ID if no
@@ -38,60 +84,8 @@ pub struct State {
 /// Put all methods inside an impl struct and annotate it with a derive macro
 /// that handles state serde and dispatch.
 #[no_mangle]
-pub fn invoke(_: u32) -> u32 {
-    // Conduct method dispatch. Handle input parameters and return data.
-    let ret: Option<RawBytes> = match sdk::message::method_number() {
-        1 => constructor(),
-        2 => say_hello(),
-        _ => abort!(USR_UNHANDLED_MESSAGE, "unrecognized method"),
-    };
-
-    // Insert the return data block if necessary, and return the correct
-    // block ID.
-    match ret {
-        None => NO_DATA_BLOCK_ID,
-        Some(v) => match sdk::ipld::put_block(DAG_CBOR, v.bytes()) {
-            Ok(id) => id,
-            Err(err) => abort!(USR_SERIALIZATION, "failed to store return value: {}", err),
-        },
-    }
+pub fn invoke(id: u32) -> u32 {
+    ComputeActor::dispatch(id)
 }
 
-/// The constructor populates the initial state.
-///
-/// Method num 1. This is part of the Filecoin calling convention.
-/// InitActor#Exec will call the constructor on method_num = 1.
-pub fn constructor() -> Option<RawBytes> {
-    // This constant should be part of the SDK.
-    const INIT_ACTOR_ADDR: ActorID = 1;
 
-    // Should add SDK sugar to perform ACL checks more succinctly.
-    // i.e. the equivalent of the validate_* builtin-actors runtime methods.
-    // https://github.com/filecoin-project/builtin-actors/blob/master/actors/runtime/src/runtime/fvm.rs#L110-L146
-    if sdk::message::caller() != INIT_ACTOR_ADDR {
-        abort!(USR_FORBIDDEN, "constructor invoked by non-init actor");
-    }
-
-    let state = State::default();
-    state.save();
-    None
-}
-
-/// Method num 2.
-pub fn say_hello() -> Option<RawBytes> {
-    let mut state = State::load();
-    state.count += 1;
-    state.save();
-
-    let ret = to_vec(format!("Hello world #{}!", &state.count).as_str());
-    match ret {
-        Ok(ret) => Some(RawBytes::new(ret)),
-        Err(err) => {
-            abort!(
-                USR_ILLEGAL_STATE,
-                "failed to serialize return value: {:?}",
-                err
-            );
-        }
-    }
-}
