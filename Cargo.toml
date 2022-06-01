@@ -14,13 +14,13 @@ serde = { version = "1.0.136", features = ["derive"] }
 serde_tuple = "0.5"
 anyhow = "1.0.56"
 
-fvm_macro = { path = "./fvm_macro" }
-fvm_macro_derive = { path = "./fvm_macro/fvm_macro_derive" }
+fvm_macro = { git = "https://github.com/dreadful-dev/fvm-macro", branch = "main" }
+fvm_macro_derive = { git = "https://github.com/dreadful-dev/fvm-macro", branch = "main" }
 
 
 [dev-dependencies]
-fvm = { version = "1.0.0-rc.1", git = "https://github.com/filecoin-project/ref-fvm" }
-fvm_sdk = { version = "1.0.0-rc.1", git = "https://github.com/filecoin-project/ref-fvm"  }
+fvm = { version = "1.0.0-rc.2", git = "https://github.com/filecoin-project/ref-fvm" }
+fvm_sdk = { version = "1.0.0-rc.2", git = "https://github.com/filecoin-project/ref-fvm"  }
 libsecp256k1 = { version = "0.7" }
 rand = "0.8"
 rand_chacha = "0.3"
