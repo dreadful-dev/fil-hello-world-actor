@@ -40,7 +40,7 @@ impl ComputeActor {
     /// Method num 1. This is part of the Filecoin calling convention.
     /// InitActor#Exec will call the constructor on method_num = 1.
 
-    pub fn constructor(_: RawBytes) -> Option<RawBytes> {
+    pub fn constructor(_: RawBytes, state: ComputeState) -> Option<RawBytes> {
       // This constant should be part of the SDK.
       const INIT_ACTOR_ADDR: ActorID = 1;
 
@@ -51,13 +51,11 @@ impl ComputeActor {
           abort!(USR_FORBIDDEN, "constructor invoked by non-init actor");
       }
 
-      let state = ComputeState::default();
       state.save();
       None
     }
 
-    pub fn say_hello(_: RawBytes) -> Option<RawBytes> {
-      let mut state = ComputeState::load();
+    pub fn say_hello(_: RawBytes, mut state: ComputeState) -> Option<RawBytes> {
       state.count += 1;
       state.save();
   
@@ -87,5 +85,3 @@ impl ComputeActor {
 pub fn invoke(id: u32) -> u32 {
     ComputeActor::dispatch(id)
 }
-
-
