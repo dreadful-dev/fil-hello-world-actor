@@ -9,19 +9,8 @@ use fvm_sdk as sdk;
 use fvm_sdk::NO_DATA_BLOCK_ID;
 use fvm_shared::{ActorID};
 
-use fvm_macro::StateObject;
+use fvm_macro::{StateObject, abort};
 use fvm_macro_derive::{StateObject, fvm_actor};
-
-/// A macro to abort concisely.
-/// This should be part of the SDK as it's very handy.
-macro_rules! abort {
-    ($code:ident, $msg:literal $(, $ex:expr)*) => {
-        fvm_sdk::vm::abort(
-            fvm_shared::error::ExitCode::$code.value(),
-            Some(format!($msg, $($ex,)*).as_str()),
-        )
-    };
-}
 
 /// The state object.
 #[derive(Serialize_tuple, Deserialize_tuple, Clone, Debug, Default, StateObject)]
@@ -70,3 +59,5 @@ impl ComputeActor {
       }
     }
 }
+
+// Actor invocation and dispatch handled by #[fvm_actor()] macro

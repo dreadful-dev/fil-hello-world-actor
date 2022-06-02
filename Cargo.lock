@@ -1539,7 +1539,7 @@ dependencies = [
 [[package]]
 name = "fvm_macro"
 version = "0.1.0"
-source = "git+https://github.com/dreadful-dev/fvm-macro?branch=main#aa0aa7f1df7960ec7184beac12110fa3a86b2567"
+source = "git+https://github.com/dreadful-dev/fvm-macro?branch=method-dispatch-annotations#28e169fea1db0f4994b29f14a42b99055de1a200"
 dependencies = [
  "cid",
  "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1551,7 +1551,7 @@ dependencies = [
 [[package]]
 name = "fvm_macro_derive"
 version = "0.1.0"
-source = "git+https://github.com/dreadful-dev/fvm-macro?branch=main#aa0aa7f1df7960ec7184beac12110fa3a86b2567"
+source = "git+https://github.com/dreadful-dev/fvm-macro?branch=method-dispatch-annotations#28e169fea1db0f4994b29f14a42b99055de1a200"
 dependencies = [
  "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "fvm_ipld_encoding 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
