@@ -1403,7 +1403,7 @@ checksum = "1847abb9cb65d566acd5942e94aea9c8f547ad02c98e1649326fc0e8910b8b1e"
 [[package]]
 name = "fvm"
 version = "1.0.0-rc.2"
-source = "git+https://github.com/filecoin-project/ref-fvm#2447d19a8208d431110baa2da014d6e67b14035d"
+source = "git+https://github.com/filecoin-project/ref-fvm#9133e75b719bb9d9b5134013b3edb19d874359c0"
 dependencies = [
  "anyhow",
  "anymap",
@@ -1448,7 +1448,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_amt"
 version = "0.4.1"
-source = "git+https://github.com/filecoin-project/ref-fvm#2447d19a8208d431110baa2da014d6e67b14035d"
+source = "git+https://github.com/filecoin-project/ref-fvm#9133e75b719bb9d9b5134013b3edb19d874359c0"
 dependencies = [
  "anyhow",
  "cid",
@@ -1474,7 +1474,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_blockstore"
 version = "0.1.1"
-source = "git+https://github.com/filecoin-project/ref-fvm#2447d19a8208d431110baa2da014d6e67b14035d"
+source = "git+https://github.com/filecoin-project/ref-fvm#9133e75b719bb9d9b5134013b3edb19d874359c0"
 dependencies = [
  "anyhow",
  "cid",
@@ -1502,7 +1502,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_encoding"
 version = "0.2.1"
-source = "git+https://github.com/filecoin-project/ref-fvm#2447d19a8208d431110baa2da014d6e67b14035d"
+source = "git+https://github.com/filecoin-project/ref-fvm#9133e75b719bb9d9b5134013b3edb19d874359c0"
 dependencies = [
  "anyhow",
  "cid",
@@ -1519,7 +1519,7 @@ dependencies = [
 [[package]]
 name = "fvm_ipld_hamt"
 version = "0.5.1"
-source = "git+https://github.com/filecoin-project/ref-fvm#2447d19a8208d431110baa2da014d6e67b14035d"
+source = "git+https://github.com/filecoin-project/ref-fvm#9133e75b719bb9d9b5134013b3edb19d874359c0"
 dependencies = [
  "anyhow",
  "byteorder 1.4.3",
@@ -1539,7 +1539,7 @@ dependencies = [
 [[package]]
 name = "fvm_macro"
 version = "0.1.0"
-source = "git+https://github.com/dreadful-dev/fvm-macro?branch=main#c59955ece72a3ffc8827ddaa51789c99be777eaf"
+source = "git+https://github.com/dreadful-dev/fvm-macro?branch=main#aa0aa7f1df7960ec7184beac12110fa3a86b2567"
 dependencies = [
  "cid",
  "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1551,7 +1551,7 @@ dependencies = [
 [[package]]
 name = "fvm_macro_derive"
 version = "0.1.0"
-source = "git+https://github.com/dreadful-dev/fvm-macro?branch=main#c59955ece72a3ffc8827ddaa51789c99be777eaf"
+source = "git+https://github.com/dreadful-dev/fvm-macro?branch=main#aa0aa7f1df7960ec7184beac12110fa3a86b2567"
 dependencies = [
  "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "fvm_ipld_encoding 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1565,7 +1565,7 @@ dependencies = [
 [[package]]
 name = "fvm_sdk"
 version = "1.0.0-rc.2"
-source = "git+https://github.com/filecoin-project/ref-fvm#2447d19a8208d431110baa2da014d6e67b14035d"
+source = "git+https://github.com/filecoin-project/ref-fvm#9133e75b719bb9d9b5134013b3edb19d874359c0"
 dependencies = [
  "cid",
  "fvm_ipld_encoding 0.2.1 (git+https://github.com/filecoin-project/ref-fvm)",
@@ -1579,7 +1579,7 @@ dependencies = [
 [[package]]
 name = "fvm_shared"
 version = "0.7.1"
-source = "git+https://github.com/filecoin-project/ref-fvm#2447d19a8208d431110baa2da014d6e67b14035d"
+source = "git+https://github.com/filecoin-project/ref-fvm#9133e75b719bb9d9b5134013b3edb19d874359c0"
 dependencies = [
  "anyhow",
  "bimap",
@@ -1748,9 +1748,9 @@ checksum = "b9e0384b61958566e926dc50660321d12159025e767c18e043daf26b70104c39"
 
 [[package]]
 name = "indexmap"
-version = "1.8.1"
+version = "1.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0f647032dfaa1f8b6dc29bd3edb7bbef4861b8b8007ebb118d6db284fd59f6ee"
+checksum = "e6012d540c5baa3589337a98ce73408de9b5a25ec9fc2c6fd6be8f0d39e0ca5a"
 dependencies = [
  "autocfg",
  "hashbrown",
@@ -2026,9 +2026,9 @@ dependencies = [
 
 [[package]]
 name = "miniz_oxide"
-version = "0.5.1"
+version = "0.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "d2b29bd4bc3f33391105ebee3589c19197c4271e3e5a9ec9bfe8127eeff8f082"
+checksum = "6f5c75688da582b8ffc1f1799e9db273f32133c49e048f614d22ec3256773ccc"
 dependencies = [
  "adler",
 ]

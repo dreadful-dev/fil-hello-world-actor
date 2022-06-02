@@ -11,7 +11,6 @@ use fvm_shared::{ActorID};
 
 use fvm_macro::StateObject;
 use fvm_macro_derive::{StateObject, fvm_actor};
-// use fvm_macro_derive::fvm_actor;
 
 /// A macro to abort concisely.
 /// This should be part of the SDK as it's very handy.
@@ -31,7 +30,6 @@ pub struct ComputeState {
 }
 
 pub struct ComputeActor;
-
 
 #[fvm_actor(state=ComputeState, dispatch="method_num")]
 impl ComputeActor {
@@ -71,17 +69,4 @@ impl ComputeActor {
           }
       }
     }
-}
-
-
-/// The actor's WASM entrypoint. It takes the ID of the parameters block,
-/// and returns the ID of the return value block, or NO_DATA_BLOCK_ID if no
-/// return value.
-///
-/// Should probably have macros similar to the ones on fvm.filecoin.io snippets.
-/// Put all methods inside an impl struct and annotate it with a derive macro
-/// that handles state serde and dispatch.
-#[no_mangle]
-pub fn invoke(id: u32) -> u32 {
-    ComputeActor::dispatch(id)
 }
