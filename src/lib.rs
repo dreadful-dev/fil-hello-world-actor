@@ -10,7 +10,9 @@ use fvm_sdk::NO_DATA_BLOCK_ID;
 use fvm_shared::{ActorID};
 
 use fvm_macro::{StateObject, abort};
-use fvm_macro_derive::{StateObject, fvm_actor};
+use fvm_macro_derive::StateObject;
+use fvm_macro_derive::fvm_actor;
+use fvm_macro_derive::fvm_export;
 
 /// The state object.
 #[derive(Serialize_tuple, Deserialize_tuple, Clone, Debug, Default, StateObject)]
@@ -26,7 +28,7 @@ impl ComputeActor {
     ///
     /// Method num 1. This is part of the Filecoin calling convention.
     /// InitActor#Exec will call the constructor on method_num = 1.
-
+    #[fvm_export(binding=1)]
     pub fn constructor(_: RawBytes, state: ComputeState) -> Option<RawBytes> {
       // This constant should be part of the SDK.
       const INIT_ACTOR_ADDR: ActorID = 1;
@@ -41,7 +43,7 @@ impl ComputeActor {
       state.save();
       None
     }
-
+    #[fvm_export(binding=2)]
     pub fn say_hello(_: RawBytes, mut state: ComputeState) -> Option<RawBytes> {
       state.count += 1;
       state.save();
