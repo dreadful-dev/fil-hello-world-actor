@@ -1540,7 +1540,7 @@ dependencies = [
 [[package]]
 name = "fvm_macro"
 version = "0.1.0"
-source = "git+https://github.com/dreadful-dev/fvm-macro?branch=method-dispatch-annotations#c86a197fdd3e22a80e0da0a6094766e640a17eca"
+source = "git+https://github.com/dreadful-dev/fvm-macro?branch=method-dispatch-annotations#3420a9294af2cc28c1f34d1999773d177f43b801"
 dependencies = [
  "cid",
  "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -1552,12 +1552,14 @@ dependencies = [
 [[package]]
 name = "fvm_macro_derive"
 version = "0.1.0"
-source = "git+https://github.com/dreadful-dev/fvm-macro?branch=method-dispatch-annotations#c86a197fdd3e22a80e0da0a6094766e640a17eca"
+source = "git+https://github.com/dreadful-dev/fvm-macro?branch=method-dispatch-annotations#3420a9294af2cc28c1f34d1999773d177f43b801"
 dependencies = [
+ "env_logger",
  "fvm_ipld_blockstore 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "fvm_ipld_encoding 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "fvm_sdk",
  "fvm_shared",
+ "log",
  "proc-macro2",
  "quote",
  "syn",
@@ -1700,6 +1702,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "hashbrown"
+version = "0.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "db0d4cf898abf0081f964436dc980e96670a0f36863e4b83aaacdb65c9d7ccc3"
+
+[[package]]
 name = "hermit-abi"
 version = "0.1.19"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1749,12 +1757,12 @@ checksum = "b9e0384b61958566e926dc50660321d12159025e767c18e043daf26b70104c39"
 
 [[package]]
 name = "indexmap"
-version = "1.8.2"
+version = "1.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e6012d540c5baa3589337a98ce73408de9b5a25ec9fc2c6fd6be8f0d39e0ca5a"
+checksum = "6c6392766afd7964e2531940894cffe4bd8d7d17dbc3c1c4857040fd4b33bdb3"
 dependencies = [
  "autocfg",
- "hashbrown",
+ "hashbrown 0.12.1",
  "serde",
 ]
 
@@ -2202,7 +2210,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "e42c982f2d955fac81dd7e1d0e1426a7d702acd9c98d19ab01083a6a0328c424"
 dependencies = [
  "crc32fast",
- "hashbrown",
+ "hashbrown 0.11.2",
  "indexmap",
  "memchr",
 ]
